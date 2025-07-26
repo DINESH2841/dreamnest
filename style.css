@@ -1,0 +1,141 @@
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(120deg, #1a1a2e, #16213e);
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+  max-width: 700px;
+}
+
+/* Glitch Animation */
+.glitch {
+  font-size: 3.5rem;
+  position: relative;
+  color: white;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #f0f;
+  z-index: -1;
+}
+
+.glitch::before {
+  animation: glitchTop 2s infinite;
+  top: -2px;
+}
+
+.glitch::after {
+  animation: glitchBottom 2s infinite;
+  top: 2px;
+  color: #0ff;
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: none;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes glitchTop {
+  0%, 100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  50% {
+    clip: rect(0, 9999px, 40px, 0);
+    transform: translate(3px, -3px);
+  }
+}
+
+@keyframes glitchBottom {
+  0%, 100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+  50% {
+    clip: rect(60px, 9999px, 100px, 0);
+    transform: translate(-3px, 3px);
+  }
+}
+
+/* Subtitle & Button */
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.story {
+  margin: 1.5rem auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  opacity: 0.85;
+  animation: fadeUp 2s ease-in-out;
+}
+
+.small-text {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.btn {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0f3460;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #16213e;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
